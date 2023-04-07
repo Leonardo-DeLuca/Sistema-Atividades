@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,10 @@
 body {
     background-image: url("../img/backgroundHome.jpg");
     overflow: hidden;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+     background-size: cover;
 }
 
 header {
@@ -28,18 +34,20 @@ header {
 }
 
 .botaoHome {
-    width: 33vw;
-    height: 90vh;
-    margin: 10px;
+    width: 28vw;
+    height: 70vh;
     border: solid 1px ;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10vh 3vh;
+    justify-content: center;
+    gap: 25px;
 }
 
 .imgBotao {
-    width: 100%;
-    height: 50%;
+    width: 25%;
+    height: auto;
 }
 
 .botaoHome:hover {
@@ -55,5 +63,63 @@ header {
 }
 
 .textoBotao {
-    margin-top: 25%;
+    font-family: 'Roboto';
+    font-size: 3vw;
 }
+
+@media screen and (max-width: 1000px) {
+    .textoBotao {
+      font-size: 5vw;
+    }
+
+    .imgBotao {
+        width: 40%;
+        height: auto;
+    }
+
+  }
+
+@media screen and (max-width: 800px) {
+    #tituloHome {
+        height: 7   vh;
+        background-color: rgba(0, 0, 0 , 0.5);
+    }
+
+    .textoBotao {
+      font-size: 5vw;
+    }
+
+    #botoes{
+        flex-direction: column;
+    }
+
+    .botaoHome {
+        width: 100%;
+        height: 25vh;
+        border: solid 1px ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2vh 2vh;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .imgBotao{
+        width: 15%;
+        height: auto;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+
+
+    .textoBotao {
+      font-size: 6vw;
+    }
+
+    .imgBotao{
+        width: 20%;
+        height: auto;
+    }
+  }
