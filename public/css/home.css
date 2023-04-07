@@ -1,30 +1,32 @@
-*{
+* {
     margin: 0;
     padding: 0;
     border: 0;
 }
-body{
+
+body {
     background-image: url("../img/backgroundHome.jpg");
 }
-header{
+
+header {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
 }
 
-#tituloHome{
+#tituloHome {
     height: 10vh;
     background-color: rgba(0, 0, 0 , 0.5);
 }
 
-#botoes{
+#botoes {
     justify-content: center;
     width: 100%;
     display: flex;
 }
 
-.botaoHome{
+.botaoHome {
     width: 33vw;
     height: 90vh;
     margin: 10px;
@@ -32,21 +34,25 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
-.imgBotao{
+.imgBotao {
     width: 100%;
     height: 50%;
 }
 
-.botaoHome:hover{
+.botaoHome:hover {
     cursor: pointer;
 }
 
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.1); }
+.grow { 
+    transition: all .2s ease-in-out; 
+}
 
-.textoBotao{
+.grow:hover { 
+    transform: scale(1.1); 
+}
+
+.textoBotao {
     margin-top: 25%;
 }
