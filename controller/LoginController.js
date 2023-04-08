@@ -1,6 +1,10 @@
 const fs = require('fs');
 const usuarios = require('../dados/usuarios.json');
 
+const loginView = (req, res) => {
+    return res.redirect('html/login.html');
+};
+
 const registrar = (req, res) => {
     const { usuario, senha } = req.body;
 
@@ -33,5 +37,6 @@ const login = (req, res) => {
     }
 };
 
+exports.loginView = loginView;
 exports.registrar = registrar;
 exports.login = login;

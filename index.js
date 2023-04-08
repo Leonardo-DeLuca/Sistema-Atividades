@@ -1,27 +1,12 @@
 const express = require('express');
 const app = express();
 const porta = 3000;
-
-const { LoginController } = require('./controller/index');
+const rotas = require('./rotas/_rotas');
 
 app.use(express.static('public'));
+
 app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.redirect('html/home.html');
-});
-
-app.get('/login', (req, res) => {
-    res.redirect('html/login.html');
-});
-
-app.post('/registrar', (req, res) => {
-    LoginController.registrar(req, res);
-});
-
-app.post('/login', (req, res) => {
-    LoginController.login(req, res);
-});
+app.use(rotas);
 
 app.listen(porta, () => {
     console.log(`Servidor rodando na porta ${porta}`);
