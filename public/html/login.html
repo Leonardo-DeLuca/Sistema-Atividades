@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
     <title>Login</title>
 </head>
 <body>
-    <input type="text" name="" id="usuario">
-    <input type="password" name="" id="senha">
-    <button onclick="onClickLogin()">ENVIAR LOGIN</button>
+    <div class="form-structor">
+	<div class="signup">
+		<h2 class="form-title" id="btnRegistrarSlide" onclick="onClickBtnRegistrarSlide(event)">Registrar</h2>
+		<div class="form-holder">
+			<input type="text" id="usuarioRegistrar" class="input" placeholder="Usuário" />
+			<input type="password" id="senhaRegistrar" class="input" placeholder="Senha" />
+		</div>
+		<button class="submit-btn" onclick="onClickRegistrar()">Registrar</button>
+	</div>
+	<div class="login slide-up">
+		<div class="center">
+			<h2 class="form-title" id="btnLoginSlide" onclick="onClickBtnLoginSlide(event)">Login</h2>
+			<div class="form-holder">
+				<input type="text" id="usuarioLogin" class="input" placeholder="Usuário" />
+				<input type="password" id="senhaLogin" class="input" placeholder="Senha" />
+			</div>
+			<button class="submit-btn" onclick="onClickLogin()">Login</button>
+		</div>
+	</div>
+</div>
 </body>
 </html>
 <script src="../js/login.js"></script>

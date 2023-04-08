@@ -15,6 +15,10 @@ app.get('/login', (req, res) => {
     res.redirect('html/login.html');
 });
 
+app.post('/registrar', (req, res) => {
+    LoginController.registrar(req, res);
+});
+
 app.post('/login', (req, res) => {
     LoginController.login(req, res);
 });
