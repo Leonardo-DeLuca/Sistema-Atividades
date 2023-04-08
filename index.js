@@ -4,6 +4,7 @@ const porta = 3000;
 const rotas = require('./rotas/_rotas');
 
 app.use(express.static('public'));
+app.use(express.static('public/html'));
 
 app.use(express.json());
 app.use(rotas);

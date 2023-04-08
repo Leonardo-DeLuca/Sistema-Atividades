@@ -2,7 +2,7 @@ const fs = require('fs');
 const usuarios = require('../dados/usuarios.json');
 
 const loginView = (req, res) => {
-    return res.redirect('html/login.html');
+    return res.redirect('/login.html');
 };
 
 const registrar = (req, res) => {

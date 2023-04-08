@@ -1,5 +1,3 @@
-const onClickTeste = async () => {
-    const response = await fetch('http://localhost:3000/resultados/');
-    const data = await response.json();
-    console.log(data);
+const onClickLogin = async () => {
+    window.location.href = "http://localhost:3000/login";
 };
