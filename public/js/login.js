@@ -71,5 +71,7 @@ const onClickLogin = async () => {
     
     if (objResponse.status !== "OK") {
         alert(objResponse.descricao_erro);
+    } else {
+        window.location.href = `${URL_BASE}/testes/cadastro`;
     }
 };
