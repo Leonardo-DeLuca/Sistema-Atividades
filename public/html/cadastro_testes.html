@@ -9,14 +9,14 @@
     <title>Cadastrar teste</title>
 </head>
 <body>
-    <div class="container">
-        <form>
+    <div class="container" id="containerFormTeste">
+        <form id="formTestes">
             <div class="row">
                 <h4>Teste</h4>
                 <div class="input-group input-group-icon"><input type="text" placeholder="Nome" />
                     <div class="input-icon"><i class="fa fa-pen"></i></div>
                 </div>
-                <div class="input-group input-group-icon"><input type="email" placeholder="Matéria" />
+                <div class="input-group input-group-icon"><input type="text" placeholder="Matéria/Assunto" />
                     <div class="input-icon"><i class="fa fa-graduation-cap"></i></div>
                 </div>
             </div>
@@ -32,9 +32,58 @@
                 </div>
             </div>
             <div class="row">
-                <div>
-                    <h4>Perguntas</h4>
-                    
+                <h4>Perguntas</h4>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon" onclick="onClickAdicionarPergunta()"><input type="text" placeholder="Adicionar pergunta" disabled="true" id="inputAdicionarPergunta" />
+                    <div class="input-icon"><i class="fa fa-plus"></i></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container" id="containerFormPergunta">
+        <form>
+            <div class="row">
+                <div class="input-icon"><i class="fa fa-arrow-left" id="iconeVoltarTeste" onclick="onClickVoltarTeste()"></i></div>
+            </div>
+            <div class="row">
+                <h4>Pergunta</h4>
+                <div class="input-group input-group-icon"><input type="text" placeholder="Título" id="tituloPergunta" />
+                    <div class="input-icon"><i class="fa fa-pen"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Respostas</h4>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="Resposta" id="alternativaA" />
+                    <div class="input-icon"><i class="fa fa-a"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="Resposta" id="alternativaB" />
+                    <div class="input-icon"><i class="fa fa-b"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="Resposta" id="alternativaC" />
+                    <div class="input-icon"><i class="fa fa-c"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="Resposta" id="alternativaD" />
+                    <div class="input-icon"><i class="fa fa-d"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="Resposta" id="alternativaE" />
+                    <div class="input-icon"><i class="fa fa-e"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <input type="radio" disabled="true" /><label id="botaoEsconder"><span><i class=""></i></span></label>
+                    <input type="radio" checked="true" /><label id="botaoSalvarPergunta" onclick="onClickSalvarPergunta()"><span><i class="fa fa-save"></i>Salvar</span></label>
                 </div>
             </div>
         </form>

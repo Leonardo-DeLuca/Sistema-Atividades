@@ -1,4 +1,4 @@
-@import url("'https://fonts.googleapis.com/css2?family=Roboto&display=swap'");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 *,
 *:before,
@@ -213,6 +213,8 @@ select option {
 }
 
 .row {
+    display: flex;
+    flex-direction: column;
     zoom: 1;
 }
 
@@ -224,6 +226,16 @@ select option {
 
 .row:after {
     clear: both;
+}
+
+.col-89-porcento {
+    padding-right: 10px;
+    float: left;
+    width: 89%;
+}
+
+.col-89-porcento:last-of-type {
+    padding-right: 0;
 }
 
 .col-half {
@@ -244,6 +256,38 @@ select option {
 
 .col-third:last-of-type {
     padding-right: 0;
+}
+
+.col-11-porcento {
+    padding-right: 10px;
+    float: left;
+    width: 11%;
+}
+
+.col-11-porcento:last-of-type {
+    padding-right: 0;
+}
+
+#inputAdicionarPergunta {
+    cursor: pointer;
+}
+
+#containerFormPergunta {
+    display: none;
+}
+
+#iconeVoltarTeste {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#botaoEsconder {
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+#botaoSalvarPergunta {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 540px) {
