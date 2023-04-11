@@ -1,9 +1,11 @@
 const express = require('express');
-const { cadastroTestesView, listaTestesView } = require('../controller/TestesController');
+const { listaTestesView, cadastroTestesView, salvar } = require('../controller/TestesController');
 const router = express.Router();
 
-router.get('/cadastro_testes', cadastroTestesView);
+router.get('/listar', listaTestesView);
 
-router.get('/lista_testes', listaTestesView);
+router.get('/cadastro', cadastroTestesView);
+
+router.post('/salvar', salvar);
 
 module.exports = router;

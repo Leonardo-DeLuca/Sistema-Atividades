@@ -77,9 +77,7 @@ input[type="radio"]+label i {
 }
 
 input[type="radio"]:checked+label,
-input:checked+label:before,
-select:focus,
-select:active {
+input:checked+label:before {
     background-color: #41b10e;
     color: #fff;
     border-color: #4ac710;
@@ -142,8 +140,7 @@ select:active {
 }
 
 select option {
-    background-color: #f0a500;
-    color: #fff;
+    color: #000000;
 }
 
 .input-group {

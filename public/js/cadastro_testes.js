@@ -1,3 +1,5 @@
+const URL_BASE = window.location.origin;
+
 const $containerFormTeste = document.getElementById('containerFormTeste');
 const $formTestes = document.getElementById('formTestes');
 const $containerFormPergunta = document.getElementById('containerFormPergunta');
@@ -111,7 +113,8 @@ const getPergunta = (id) => {
         alternativaB: document.getElementById('alternativaB').value,
         alternativaC: document.getElementById('alternativaC').value,
         alternativaD: document.getElementById('alternativaD').value,
-        alternativaE: document.getElementById('alternativaE').value
+        alternativaE: document.getElementById('alternativaE').value,
+        alternativaCorreta: document.getElementById('selectAlternativaCorreta').value
     }
 };
 
@@ -181,7 +184,8 @@ const setaOuLimpaCamposPergunta = (pergunta) => {
         alternativaB = document.getElementById('alternativaB'),
         alternativaC = document.getElementById('alternativaC'),
         alternativaD = document.getElementById('alternativaD'),
-        alternativaE = document.getElementById('alternativaE');
+        alternativaE = document.getElementById('alternativaE'),
+        alternativaCorreta = document.getElementById('selectAlternativaCorreta');
 
     titulo.value = pergunta ? pergunta.titulo : '';
     alternativaA.value = pergunta ? pergunta.alternativaA : '';
@@ -189,4 +193,91 @@ const setaOuLimpaCamposPergunta = (pergunta) => {
     alternativaC.value = pergunta ? pergunta.alternativaC : '';
     alternativaD.value = pergunta ? pergunta.alternativaD : '';
     alternativaE.value = pergunta ? pergunta.alternativaE : '';
+    alternativaCorreta.value = pergunta ? pergunta.alternativaCorreta : 'A';
+};
+
+const onClickSalvarTeste = async () => {
+    if (!executaValidacoesAntesDeSalvar()) return;
+
+    const testeSalvar = getTesteParaSalvar();
+
+    const resp = await fetch(`${URL_BASE}/testes/salvar`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(testeSalvar)
+    });
+
+    const objResponse = await resp.json();
+    
+    if (objResponse.status !== "OK") {
+        alert(objResponse.descricao_erro);
+    } else {
+        alert('Teste cadastrado com sucesso!');
+        limparFormAposSalvar();
+    }
+};
+
+const getTesteParaSalvar = () => {
+    const nomeTeste = document.getElementById('nomeTeste').value,
+        materiaTeste = document.getElementById('materiaTeste').value,
+        dificuldades = [document.getElementById('dificuldade-facil'), document.getElementById('dificuldade-media'), document.getElementById('dificuldade-dificil'), document.getElementById('dificuldade-expert')],
+        dificuldadeTeste = dificuldades.find(dificuldade => dificuldade.checked);
+
+    return {
+        nome: nomeTeste,
+        materia: materiaTeste,
+        dificuldade: dificuldadeTeste.value,
+        perguntas: perguntasTeste
+    }
+};
+
+const executaValidacoesAntesDeSalvar = () => {
+    const nomeTeste = document.getElementById('nomeTeste'),
+        materiaTeste = document.getElementById('materiaTeste'),
+        dificuldadeFacil = document.getElementById('dificuldade-facil'),
+        dificuldadeMedia = document.getElementById('dificuldade-media'),
+        dificuldadeDificil = document.getElementById('dificuldade-dificil'),
+        dificuldadeExpert = document.getElementById('dificuldade-expert');
+
+    if (nomeTeste.value === '') {
+        alert('Insira um nome válido para o teste!');
+        return false;
+    }
+
+    if (materiaTeste.value === '') {
+        alert('Insira uma matéria ou assunto válido para o teste!');
+        return false;
+    }
+
+    if (!dificuldadeFacil.checked && !dificuldadeMedia.checked && !dificuldadeDificil.checked && !dificuldadeExpert.checked) {
+        alert('Insira uma dificuldade válida para o teste!');
+        return false;
+    }
+
+    if (perguntasTeste.length === 0) {
+        alert('Insira ao menos uma pergunta para o teste!');
+        return false;
+    }
+
+    return true;
+};
+
+const limparFormAposSalvar = () => {
+    const nomeTeste = document.getElementById('nomeTeste'),
+        materiaTeste = document.getElementById('materiaTeste'),
+        dificuldades = [document.getElementById('dificuldade-facil'), document.getElementById('dificuldade-media'), document.getElementById('dificuldade-dificil'), document.getElementById('dificuldade-expert')];
+
+    nomeTeste.value = '';
+    materiaTeste.value = '';
+    dificuldades.forEach(dif => dif.checked = false);
+
+    perguntasTeste.forEach(pergunta => {
+        const elementoPergunta = document.getElementById(`pergunta${pergunta.id}`);
+        
+        elementoPergunta.remove();
+    });
+
+    perguntasTeste = [];
 };
