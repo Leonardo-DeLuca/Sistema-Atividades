@@ -2,7 +2,7 @@ const express = require('express');
 const { listaTestesView, cadastroTestesView, salvar } = require('../controller/TestesController');
 const router = express.Router();
 
-router.get('/listar', listaTestesView);
+router.get('/lista', listaTestesView);
 
 router.get('/cadastro', cadastroTestesView);
 

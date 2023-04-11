@@ -7,16 +7,12 @@
 }
 
 body {
-    background-image: url("../img/backgroundHome.jpg");
-    /* background-color: #e3e3e3; */
+    background-color: #e3e3e3;
     overflow: hidden;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,11 +41,6 @@ header {
     justify-content: center;
     gap: 25px;
     border-radius: 15px;
-}
-
-.imgBotao {
-    width: 25%;
-    height: auto;
 }
 
 .botaoHome:hover {

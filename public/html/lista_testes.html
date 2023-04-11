@@ -4,35 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/lista_testes.css">
     <title>Testes</title>
 </head>
 <body>
     <nav>
-        <a onclick="onClickHome()"><img src="../img/botaoVoltar.png" title="Home" id="botaoHome" class="hover1" alt="botãoHome"></a>
+        <i onclick="onClickHome()" class="fa-solid fa-house hover1 fa-2x"></i>
         <h1 id="tituloPag">Lista de Testes</h1>
-        <div class="right"></div>
     </nav>
-    <section id="listaTestes">
-        <ol>
-            <li><a onclick="onClickTeste()">Teste 1</a></li>
-            <li><a onclick="onClickTeste()">Teste 2</a></li>
-            <li><a onclick="onClickTeste()">Teste 3</a></li>
-            <li><a onclick="onClickTeste()">Teste 4</a></li>
-            <li><a onclick="onClickTeste()">Teste 5</a></li>
-            <li><a onclick="onClickTeste()">Teste 6</a></li>
-            <li><a onclick="onClickTeste()">Teste 7</a></li>
-            <li><a onclick="onClickTeste()">Teste 8</a></li>
-            <li><a onclick="onClickTeste()">Teste 9</a></li>
-            <li><a onclick="onClickTeste()">Teste 10</a></li>
-            <li><a onclick="onClickTeste()">Teste 11</a></li>
-            <!-- <li><a onclick="onClickTeste()">Teste 12</a></li>
-            <li><a onclick="onClickTeste()">Teste 13</a></li>
-            <li><a onclick="onClickTeste()">Teste 14</a></li>
-            <li><a onclick="onClickTeste()">Teste 15</a></li> -->
-            
-        </ol>
-    </section>
+        <div class="container">
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-1">Id</div>
+                <div class="col col-2">Nome</div>
+                <div class="col col-3">Matéria / Assunto</div>
+                <div class="col col-4">Dificuldade</div>
+                <div class="col col-5">Nº </div>
+              </li>
+              <!-- <li class="table-row">
+                <div class="col col-1" data-label="Job Id">1</div>
+                <div class="col col-2" data-label="Customer Name">Avaliação ciencias da computação 5 fase</div>
+                <div class="col col-3" data-label="Amount">$350</div>
+                <div class="col col-4" data-label="Dificuldade">Facil</div>
+                <div class="col col-5" data-label="Payment Status">Pending</div>
+              </li> -->
+            </ul>
+          </div>
 </body>
 
 </html>

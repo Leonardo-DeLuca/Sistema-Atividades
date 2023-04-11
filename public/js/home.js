@@ -9,5 +9,5 @@ const onClickResultados = async () => {
 };
 
 const onClickTestes = async () => {
-    
+    window.location.href = `${URL_BASE}/testes/lista`;
 };
