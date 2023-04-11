@@ -1,5 +1,10 @@
-const testesView = (req, res) => {
-    return res.redirect('/testes.html');
+const cadastroTestesView = (req, res) => {
+    return res.redirect('/cadastro_testes.html');
 };
 
-exports.testesView = testesView
+const listaTestesView = (req, res) => {
+    return res.redirect('/lista_testes.html');
+};
+
+exports.cadastroTestesView = cadastroTestesView;
+exports.listaTestesView = listaTestesView

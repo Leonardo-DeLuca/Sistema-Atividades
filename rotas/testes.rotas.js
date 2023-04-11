@@ -1,7 +1,9 @@
 const express = require('express');
-const { testesView } = require('../controller/TestesController');
+const { cadastroTestesView, listaTestesView } = require('../controller/TestesController');
 const router = express.Router();
 
-router.get('/testes', testesView);
+router.get('/cadastro_testes', cadastroTestesView);
+
+router.get('/lista_testes', listaTestesView);
 
 module.exports = router;
