@@ -44,6 +44,7 @@ header {
     margin: 10vh 3vh;
     justify-content: center;
     gap: 25px;
+    border-radius: 15px;
 }
 
 .imgBotao {
