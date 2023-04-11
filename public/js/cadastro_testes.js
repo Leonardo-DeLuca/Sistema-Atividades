@@ -3,6 +3,7 @@ const URL_BASE = window.location.origin;
 const $containerFormTeste = document.getElementById('containerFormTeste');
 const $formTestes = document.getElementById('formTestes');
 const $containerFormPergunta = document.getElementById('containerFormPergunta');
+const $tituloPergunta = document.getElementById('tituloPergunta');
 
 let perguntasTeste = [];
 let isEditandoPergunta = false;
@@ -11,6 +12,7 @@ let perguntaEditando = {};
 const abreFormPerguntas = () => {
     $containerFormTeste.style.display = 'none';
     $containerFormPergunta.style.display = 'block';
+    $tituloPergunta.focus();
 };
 
 const fechaFormPerguntas = () => {
