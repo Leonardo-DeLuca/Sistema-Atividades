@@ -1,5 +1,5 @@
 const testesView = (req, res) => {
-    return res.redirect('/testes.html');
+    return res.redirect('/lista_testes.html');
 };
 
 exports.testesView = testesView
