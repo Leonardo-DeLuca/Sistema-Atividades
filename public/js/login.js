@@ -1,4 +1,4 @@
-const URL_BASE = window.location.href.substring(0, 21);
+const URL_BASE = `http://${window.location.hostname}:${window.location.port}`;
 
 const onClickBtnRegistrarSlide = (e) => {
     const loginBtn = document.getElementById('btnLoginSlide'),
