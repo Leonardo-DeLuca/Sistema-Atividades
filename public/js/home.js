@@ -1,4 +1,4 @@
-const URL_BASE = `http://${window.location.hostname}:${window.location.port}`;
+const URL_BASE = window.location.origin;
 
 const onClickLogin = async () => {
     window.location.href = `${URL_BASE}/login`;
@@ -9,5 +9,5 @@ const onClickResultados = async () => {
 };
 
 const onClickTestes = async () => {
-    window.location.href = `${URL_BASE}/testes`;
+    
 };

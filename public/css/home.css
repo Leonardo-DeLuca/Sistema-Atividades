@@ -8,11 +8,12 @@
 
 body {
     background-image: url("../img/backgroundHome.jpg");
+    /* background-color: #e3e3e3; */
     overflow: hidden;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-     background-size: cover;
+    background-size: cover;
 }
 
 header {

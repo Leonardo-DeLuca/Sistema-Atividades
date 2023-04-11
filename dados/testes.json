@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nome": "Teste1",
+        "materia": "História",
+        "dificuldade": "facil",
+        "perguntas": [
+            {
+                "id": 1,
+                "titulo": "Em que ano ocorreu a cisma da Igreja Católica com a Ortodoxa?",
+                "alternativaA": "1782",
+                "alternativaB": "1054",
+                "alternativaC": "1982",
+                "alternativaD": "1742",
+                "alternativaE": "1876",
+                "alternativaCorreta": "B"
+            }
+        ]
+    }
+]

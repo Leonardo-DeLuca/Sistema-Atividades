@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastro_testes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cadastrar teste</title>
+</head>
+<body>
+    <div class="container" id="containerFormTeste">
+        <form id="formTestes">
+            <div class="row">
+                <h4>Teste</h4>
+                <div class="input-group input-group-icon"><input type="text" placeholder="Nome" id="nomeTeste" />
+                    <div class="input-icon"><i class="fa fa-pen"></i></div>
+                </div>
+                <div class="input-group input-group-icon"><input type="text" placeholder="Matéria/Assunto" id="materiaTeste" />
+                    <div class="input-icon"><i class="fa fa-graduation-cap"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h4>Dificuldade</h4>
+                    <div class="input-group">
+                        <input id="dificuldade-facil" type="radio" name="dificuldade" value="facil" /><label for="dificuldade-facil">Fácil</label>
+                        <input id="dificuldade-media" type="radio" name="dificuldade" value="media" /><label for="dificuldade-media">Média</label>
+                        <input id="dificuldade-dificil" type="radio" name="dificuldade" value="dificil" /><label for="dificuldade-dificil">Difícil</label>
+                        <input id="dificuldade-expert" type="radio" name="dificuldade" value="expert" /><label for="dificuldade-expert">Expert</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Perguntas</h4>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon" onclick="onClickAdicionarPergunta()"><input type="text" placeholder="Adicionar pergunta" disabled="true" id="inputAdicionarPergunta" />
+                    <div class="input-icon"><i class="fa fa-plus"></i></div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="input-group">
+                <input type="radio" disabled="true" /><label id="botaoEsconder"><span><i class=""></i></span></label>
+                <input type="radio" checked="true" /><label id="botaoSalvarPergunta" onclick="onClickSalvarTeste()"><span><i class="fa fa-save"></i>Salvar</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="containerFormPergunta">
+        <form>
+            <div class="row">
+                <div class="input-icon"><i class="fa fa-arrow-left" id="iconeVoltarTeste" onclick="onClickVoltarTeste()"></i></div>
+            </div>
+            <div class="row">
+                <h4>Pergunta</h4>
+                <div class="input-group input-group-icon"><input type="text" placeholder="Título" id="tituloPergunta" />
+                    <div class="input-icon"><i class="fa fa-pen"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Alternativas</h4>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="..." id="alternativaA" />
+                    <div class="input-icon"><i class="fa fa-a"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="..." id="alternativaB" />
+                    <div class="input-icon"><i class="fa fa-b"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="..." id="alternativaC" />
+                    <div class="input-icon"><i class="fa fa-c"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="..." id="alternativaD" />
+                    <div class="input-icon"><i class="fa fa-d"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group input-group-icon"><input type="text" placeholder="..." id="alternativaE" />
+                    <div class="input-icon"><i class="fa fa-e"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Alternativa correta</h4>
+                <div class="col-half">
+                    <div class="input-group">
+                        <select id="selectAlternativaCorreta">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <input type="radio" disabled="true" /><label id="botaoEsconder"><span><i class=""></i></span></label>
+                    <input type="radio" checked="true" /><label id="botaoSalvarPergunta" onclick="onClickSalvarPergunta()"><span><i class="fa fa-save"></i>Salvar</span></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script src="../js/cadastro_testes.js"></script>

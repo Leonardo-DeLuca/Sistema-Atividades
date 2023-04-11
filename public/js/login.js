@@ -1,4 +1,4 @@
-const URL_BASE = `http://${window.location.hostname}:${window.location.port}`;
+const URL_BASE = window.location.origin;
 
 const onClickBtnRegistrarSlide = (e) => {
     const loginBtn = document.getElementById('btnLoginSlide'),
@@ -71,5 +71,7 @@ const onClickLogin = async () => {
     
     if (objResponse.status !== "OK") {
         alert(objResponse.descricao_erro);
+    } else {
+        window.location.href = `${URL_BASE}/testes/cadastro`;
     }
 };

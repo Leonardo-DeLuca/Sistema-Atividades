@@ -9,6 +9,6 @@ const rotasTestes = require('./testes.rotas');
 router.use('/', rotasHome);
 router.use('/', rotasLogin);
 router.use('/', rotasResultados);
-router.use('/', rotasTestes);
+router.use('/testes', rotasTestes);
 
 module.exports = router;
