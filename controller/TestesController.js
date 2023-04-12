@@ -28,6 +28,11 @@ const salvar = (req, res) => {
     }
 };
 
+const carregaLista = (req, res) =>{
+    return res.send(testes)
+}
+
 exports.listaTestesView = listaTestesView
 exports.cadastroTestesView = cadastroTestesView;
 exports.salvar = salvar;
+exports.carregaLista = carregaLista;
