@@ -1,4 +1,4 @@
-const URL_BASE = `http://${window.location.hostname}:${window.location.port}`;
+const URL_BASE = window.location.origin;
 
 const onClickHome = async () => {
     window.location.href = `${URL_BASE}/home`;
@@ -13,14 +13,9 @@ const carregaItemsLista = async () => {
 
     const data = await resp.json();
 
-    let obj = {}
-
     data.forEach(element =>{
-        console.log(element)
         adicionaItemsLista(element)
     });
-
-    console.log(obj)
 
 }
 
@@ -34,7 +29,6 @@ const adicionaItemsLista = async (element) =>{
         window['div'+i] = document.createElement('div')
     }
 
-    // const [div1, div2, div3, div4, div5] = document.createElement("div")
     div1.classList = "col col-1"
     div1.innerHTML = element.id
 

@@ -1,5 +1,9 @@
 const URL_BASE = window.location.origin;
 
+const onClickHome = async () => {
+    window.location.href = `${URL_BASE}/home`;
+};
+
 const onClickBtnRegistrarSlide = (e) => {
     const loginBtn = document.getElementById('btnLoginSlide'),
         elPai = e.target.parentNode;
