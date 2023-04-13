@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/realizar_teste.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cadastrar teste</title>
+</head>
+<body>
+    <div class="wrapperCabecalho">
+        <h4 id="tituloTeste" class="tituloTeste"></h4>
+    </div>
+    <div class="wrapperPergunta">
+        <div class="botoesPerguntasVoltar">
+            <i id="botaoVoltarPergunta" class="fa-solid fa-chevron-left fa-3x" onclick="onClickVoltarPergunta()"></i>
+        </div>
+        <div class="container" id="containerFormTeste">
+            <form id="formTestes">
+                <div class="row">
+                    <h4 id="tituloPergunta"></h4>
+                </div>
+                <div class="row">
+                    <h4>Resposta</h4>
+                </div>
+                <div class="row linha_alternativa"">
+                    <input id="alternativaA" type="radio" name="alternativas" value="A" onchange="onChangeAlternativa(event)" /><label for="alternativaA" class="letraAlternativa">A</label>
+                    <input type="radio" name="tituloAlternativaA" disabled="true" /><label for="tituloAlternativaA" class="tituloAlternativas" id="tituloAlternativaA"></label>
+                </div>
+                <div class="row linha_alternativa">
+                    <input id="alternativaB" type="radio" name="alternativas" value="B" onchange="onChangeAlternativa(event)" /><label for="alternativaB" class="letraAlternativa">B</label>
+                    <input type="radio" name="tituloAlternativaB" disabled="true" /><label for="tituloAlternativaB" class="tituloAlternativas" id="tituloAlternativaB"></label>
+                </div>
+                <div class="row linha_alternativa">
+                    <input id="alternativaC" type="radio" name="alternativas" value="C" onchange="onChangeAlternativa(event)" /><label for="alternativaC" class="letraAlternativa">C</label>
+                    <input type="radio" name="tituloAlternativaC" disabled="true" /><label for="tituloAlternativaC" class="tituloAlternativas" id="tituloAlternativaC"></label>
+                </div>
+                <div class="row linha_alternativa">
+                    <input id="alternativaD" type="radio" name="alternativas" value="D" onchange="onChangeAlternativa(event)" /><label for="alternativaD" class="letraAlternativa">D</label>
+                    <input type="radio" name="tituloAlternativaD" disabled="true" /><label for="tituloAlternativaD" class="tituloAlternativas" id="tituloAlternativaD"></label>
+                </div>
+                <div class="row linha_alternativa">
+                    <input id="alternativaE" type="radio" name="alternativas" value="E" onchange="onChangeAlternativa(event)" /><label for="alternativaE" class="letraAlternativa">E</label>
+                    <input type="radio" name="tituloAlternativaE" disabled="true" /><label for="tituloAlternativaE" class="tituloAlternativas" id="tituloAlternativaE"></label>
+                </div>
+            </form>
+        </div>
+        <div class="botoesPerguntasAvancar">
+            <i id="botaoAvancarPergunta" class="fa-solid fa-chevron-right fa-3x" onclick="onClickAvancarPergunta()"></i>
+        </div>
+    </div>
+    <div class="wrapperRodape">
+        <h4 id="numeroPerguntas"></h4>
+        <button id="btnFinalizar" class="btn" onclick="onClickFinalizarTeste()"><i class="fa fa-check"></i>Finalizar</button>
+    </div>
+</body>
+</html>
+<script src="../js/realizar_teste.js"></script>
