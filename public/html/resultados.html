@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/resultados.css">
     <title>Resultados</title>
 </head>
 <body>
-RESULTADOS
+    <nav>
+        <i onclick="onClickHome()" class="fa-solid fa-house hover1 fa-2x"></i>
+        <h1 id="tituloPag">Lista de Resultados</h1>
+    </nav>
+        <div class="container">
+            <ul id="tabelaResultados" class="responsive-table">
+              <li class="table-header">
+                <div class="col col-1">Id</div>
+                <div class="col col-2">Nome do usuário</div>
+                <div class="col col-3">Nome do teste</div>
+                <div class="col col-4">Numero de Acertos</div>
+                <div class="col col-5">Porcentagem </div>
+              </li>
+            </ul>
+          </div>
 </body>
+
 </html>
 <script src="../js/resultados.js"></script>
