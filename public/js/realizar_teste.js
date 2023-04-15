@@ -22,10 +22,14 @@ const $tituloAlternativaD = document.getElementById('tituloAlternativaD');
 const $tituloAlternativaE = document.getElementById('tituloAlternativaE');
 
 const $btnFinalizar = document.getElementById('btnFinalizar');
+const $porcentagemAcertos = document.getElementById('porcentagemAcertos');
 
 let perguntasTeste = [];
 let idTesteRealizando = 0;
 let idPerguntaAtual = 0;
+let testeFinalizado = false;
+let nomeUsuario = '';
+let nomeTeste = '';
 
 window.addEventListener("load", function() {
     recuperaTeste();
@@ -68,6 +72,7 @@ const executaProcedimentosAuxiliaresPerguntas = () => {
         perguntasTeste[i].alternativaMarcada = '';
     }
 
+    perguntaNomeDoUsuario();
     setaTitulosEAlternativaMarcadaPergunta();
     configuraBotoesNavegacaoPerguntas();
     atualizaNumeroDaPergunta();
@@ -84,8 +89,8 @@ const setaTitulosEAlternativaMarcadaPergunta = () => {
     $tituloAlternativaD.innerHTML = perguntaAtual.alternativaD;
     $tituloAlternativaE.innerHTML = perguntaAtual.alternativaE;
 
-    if (perguntaAtual.alternativaMarcada !== '') {
-        const $alternativaMarcada = $alternativas.find(item => item.id.charAt(item.id.length - 1) === perguntaAtual.alternativaMarcada);
+    if (perguntaAtual.alternativaMarcada !== '' && !testeFinalizado) {
+        const $alternativaMarcada = $alternativas.find(item => item.value === perguntaAtual.alternativaMarcada);
 
         $alternativaMarcada.checked = true;
     }   
@@ -124,11 +129,34 @@ const configuraBotoesNavegacaoPerguntas = () => {
     }
 };
 
+const atualizaNumeroDaPergunta = () => {
+    const numPergunta = getIndicePerguntaAtual() + 1;
+    const perguntasTotais = perguntasTeste.length;
+
+    $numeroPerguntas.innerHTML = `Pergunta ${numPergunta}/${perguntasTotais}`;
+
+    if (numPergunta / perguntasTotais === 1) {
+        if (testeFinalizado) return;
+
+        $btnFinalizar.style.display = 'block';
+    } else {
+        $btnFinalizar.style.display = 'none';
+    }
+};
+
 const onChangeAlternativa = (e) => {
     for (let i = 0; i < perguntasTeste.length; i++) {
         if (perguntasTeste[i].id === idPerguntaAtual) {
             perguntasTeste[i].alternativaMarcada = e.target.value;
         }
+    }
+};
+
+const perguntaNomeDoUsuario = () => {
+    nomeUsuario = prompt('Digite o seu nome: ');
+
+    if (!nomeUsuario || nomeUsuario.trim().length === 0) {
+        perguntaNomeDoUsuario();
     }
 };
 
@@ -142,6 +170,10 @@ const onClickVoltarPergunta = () => {
     setaTitulosEAlternativaMarcadaPergunta();
     configuraBotoesNavegacaoPerguntas();
     atualizaNumeroDaPergunta();
+
+    if (testeFinalizado) {
+        configuraPerguntaTesteFinalizado();
+    }
 };
 
 const onClickAvancarPergunta = () => {
@@ -154,31 +186,49 @@ const onClickAvancarPergunta = () => {
     setaTitulosEAlternativaMarcadaPergunta();
     configuraBotoesNavegacaoPerguntas();
     atualizaNumeroDaPergunta();
+
+    if (testeFinalizado) {
+        configuraPerguntaTesteFinalizado();
+    }
 };
 
 const limpaAlternativas = () => {
     $alternativas.forEach($alternativa => $alternativa.checked = false);
 };
 
-const atualizaNumeroDaPergunta = () => {
-    const numPergunta = getIndicePerguntaAtual() + 1;
-    const perguntasTotais = perguntasTeste.length;
-
-    $numeroPerguntas.innerHTML = `Pergunta ${numPergunta}/${perguntasTotais}`;
-
-    if (numPergunta / perguntasTotais === 1) {
-        $btnFinalizar.style.display = 'block';
-    } else {
-        $btnFinalizar.style.display = 'none';
-    }
-};
 
 const getIndicePerguntaAtual = () => {
     return perguntasTeste.findIndex(pergunta => pergunta.id === idPerguntaAtual);
 };
 
+const configuraPerguntaTesteFinalizado = () => {
+    const $alternativaMarcadaPergunta = $alternativas.find($alternativa => $alternativa.value === perguntasTeste[getIndicePerguntaAtual()].alternativaMarcada);
+    const $alternativaCorretaPergunta = $alternativas.find($alternativa => $alternativa.value === perguntasTeste[getIndicePerguntaAtual()].alternativaCorreta);
+
+    atualizaAlternativasTesteFinalizado();
+
+    if ($alternativaMarcadaPergunta.value !== $alternativaCorretaPergunta.value) {
+        $alternativaMarcadaPergunta.nextElementSibling.style.backgroundColor = '#eb4034';
+        $alternativaCorretaPergunta.nextElementSibling.style.backgroundColor = '#41b10e';
+        $alternativaMarcadaPergunta.nextElementSibling.style.color = '#fff';
+        $alternativaCorretaPergunta.nextElementSibling.style.color = '#fff';
+    } else {
+        $alternativaMarcadaPergunta.nextElementSibling.style.backgroundColor = '#41b10e';
+        $alternativaMarcadaPergunta.nextElementSibling.style.color = '#fff';
+    }
+};
+
+const atualizaAlternativasTesteFinalizado = () => {
+    $alternativas.forEach($alternativa => {
+        $alternativa.nextElementSibling.style.backgroundColor = '#f9f9f9';
+        $alternativa.nextElementSibling.style.color = '#b9b9b9';
+    })
+};
+
 const onClickFinalizarTeste = () => {
     if (!executaValidacoesAntesDeFinalizar()) return;
+
+    executaMetodosFinalizar();
 };
 
 const executaValidacoesAntesDeFinalizar = () => {
@@ -190,4 +240,79 @@ const executaValidacoesAntesDeFinalizar = () => {
     }
 
     return true;
+};
+
+const executaMetodosFinalizar = () => {
+    testeFinalizado = true;
+
+    criaRegistroNoBack();
+    configuraTelaAposFinalizar();
+};
+
+const criaRegistroNoBack = async () => {
+    const resultadoSalvar = getResultadosParaSalvar();
+
+    const resp = await fetch(`${URL_BASE}/resultados/salvar`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(resultadoSalvar)
+    });
+
+    const objResponse = await resp.json();
+    
+    if (objResponse.status !== "OK") {
+        alert(objResponse.descricao_erro);
+    } else {
+        alert('Resultado submetido com sucesso! Agora você pode ver as perguntas que acertou!');
+    }
+};
+
+const configuraTelaAposFinalizar = () => {
+    const $alternativaMarcadaUltimaPergunta = $alternativas.find($alternativa => $alternativa.value === perguntasTeste[getIndicePerguntaAtual()].alternativaMarcada);
+    const $alternativaCorretaUltimaPergunta = $alternativas.find($alternativa => $alternativa.value === perguntasTeste[getIndicePerguntaAtual()].alternativaCorreta);
+
+    if ($alternativaMarcadaUltimaPergunta.value !== $alternativaCorretaUltimaPergunta.value) {
+        $alternativaMarcadaUltimaPergunta.nextElementSibling.style.backgroundColor = '#eb4034';
+        $alternativaCorretaUltimaPergunta.nextElementSibling.style.backgroundColor = '#41b10e';
+        $alternativaMarcadaUltimaPergunta.nextElementSibling.style.color = '#fff';
+        $alternativaCorretaUltimaPergunta.nextElementSibling.style.color = '#fff';
+    } else {
+        $alternativaMarcadaUltimaPergunta.nextElementSibling.style.backgroundColor = '#41b10e';
+        $alternativaMarcadaUltimaPergunta.nextElementSibling.style.color = '#fff';
+    }
+
+    $porcentagemAcertos.style.display = 'block';
+    $porcentagemAcertos.innerHTML = `Porcentagem de acertos: ${getPorcentagemAcertos()}`
+    $btnFinalizar.style.display = 'none';
+
+    $alternativas.forEach($alternativa => {
+        $alternativa.disabled = 'true';
+    });
+};
+
+const getResultadosParaSalvar = () => {
+    return {
+        idTeste: idTesteRealizando,
+        nomeTeste,
+        nomeUsuario,
+        perguntasTotais: perguntasTeste.length,
+        respostasCorretas: getRespostasCorretas(),
+        porcentagemAcertos: getPorcentagemAcertos()
+    }
+};
+
+const getRespostasCorretas = () => {
+    return perguntasTeste.reduce((acc, item) => { 
+        if (item.alternativaMarcada === item.alternativaCorreta) {
+            acc++
+        }
+    
+        return acc;
+    }, 0)
+};
+
+const getPorcentagemAcertos = () => {
+    return ((getRespostasCorretas() / perguntasTeste.length) * 100).toFixed(2) + '%';
 };

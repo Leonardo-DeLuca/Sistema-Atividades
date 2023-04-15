@@ -232,6 +232,10 @@ input:checked+label:after {
     margin-right: 10px;
 }
 
+.porcentagemAcertos {
+    display: none;
+}
+
 @media only screen and (max-width: 540px) {
     .col-half {
         width: 100%;

@@ -1,9 +1,11 @@
 const express = require('express');
-const { resultadosView, carregaLista } = require('../controller/ResultadosController');
+const { resultadosView, salvar, carregaLista } = require('../controller/ResultadosController');
 const router = express.Router();
 
 router.get('/', resultadosView);
 
-router.get('/carregaLista', carregaLista)
+router.post('/salvar', salvar);
+
+router.get('/carregaLista', carregaLista);
 
 module.exports = router;
