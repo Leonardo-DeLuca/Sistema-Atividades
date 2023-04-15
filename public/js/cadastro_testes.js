@@ -9,6 +9,10 @@ let perguntasTeste = [];
 let isEditandoPergunta = false;
 let perguntaEditando = {};
 
+const onClickHome = async () => {
+    window.location.href = `${URL_BASE}/home`;
+};
+
 const abreFormPerguntas = () => {
     $containerFormTeste.style.display = 'none';
     $containerFormPergunta.style.display = 'block';

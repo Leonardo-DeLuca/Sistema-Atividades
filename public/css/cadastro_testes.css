@@ -14,6 +14,10 @@ body {
     background-color: #e3e3e3;
 }
 
+body i{
+    color:#000000
+}
+
 h4 {
     color: #7e7878;
 }
@@ -293,3 +297,19 @@ select option {
         padding-right: 0;
     }
 }
+
+.hover1 {
+    background-image: linear-gradient(white, white);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: .4s;
+    align-self: flex-start;
+    flex: 0 1 auto;
+    margin-right: auto;
+  }
+  .hover1:hover {
+    background-size: 100% 100%;
+    cursor: pointer;
+    transform: scale(1.2);
+    box-shadow: 0px 5px 5px #7e7878;
+  }

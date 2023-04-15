@@ -52,6 +52,8 @@ const onClickRegistrar = async () => {
     
     if (objResponse.status !== "OK") {
         alert(objResponse.descricao_erro);
+    }else {
+        alert('Usuário registrado com sucesso');
     }
 };
 

@@ -33,7 +33,7 @@ const login = (req, res) => {
     if (usuarios.some(item => item.usuario === usuario && item.senha === senha)) {
         return res.status(200).json({ "status": "OK" });
     } else {
-        return res.status(401).json({ "status": "ERRO", "descricao_erro": "Usuário não encontrado." });
+        return res.status(401).json({ "status": "ERRO", "descricao_erro": "Usuário ou senha inválidos." });
     }
 };
 
