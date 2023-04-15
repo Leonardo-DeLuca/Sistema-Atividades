@@ -35,6 +35,12 @@ window.addEventListener("load", function() {
     recuperaTeste();
 });
 
+const onClickHome = async () => {
+    if (confirm("Tem certeza que quer retornar à pagina inicial?")) {
+        window.location.href = `${URL_BASE}/home`;
+      }  
+};  
+
 const recuperaTeste = async () => {
     idTesteRealizando = localStorage.getItem('$id_teste_realizando');
 
@@ -49,6 +55,7 @@ const recuperaTeste = async () => {
     const data = await resp.json();
 
     $tituloTeste.innerHTML = data.conteudo.nome;
+    nomeTeste = data.conteudo.nome;
 
     randomizaPerguntas(data.conteudo.perguntas, executaProcedimentosAuxiliaresPerguntas);
 };

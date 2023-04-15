@@ -26,27 +26,24 @@ nav i {
     flex: 1;
 }
 
-#botaoHome {
-    height: auto;
-    width: 46px;
-    border: solid 1px;
-    border-radius: 15px;
-
-}
-
-.hover1 {
+#botaoHome{
+    color: black;
     background-image: linear-gradient(white, white);
     background-size: 0 100%;
     background-repeat: no-repeat;
     transition: .4s;
-}
+    align-self: flex-start;
+    flex: 0 1 auto;
+    margin-right: auto;
+    margin: 1%;
+  }
 
-.hover1:hover {
+  #botaoHome:hover{
     background-size: 100% 100%;
     cursor: pointer;
     transform: scale(1.2);
     box-shadow: 0px 5px 5px #7e7878;
-}
+  }
 
 ::-webkit-scrollbar {
     display: none;

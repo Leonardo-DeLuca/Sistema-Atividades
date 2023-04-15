@@ -13,11 +13,6 @@ body {
     color: #b9b9b9;
     background-color: #e3e3e3;
 }
-
-body i{
-    color:#000000
-}
-
 h4 {
     color: #7e7878;
 }
@@ -298,7 +293,8 @@ select option {
     }
 }
 
-.hover1 {
+#botaoHome{
+    color: black;
     background-image: linear-gradient(white, white);
     background-size: 0 100%;
     background-repeat: no-repeat;
@@ -306,8 +302,10 @@ select option {
     align-self: flex-start;
     flex: 0 1 auto;
     margin-right: auto;
+    margin: 1%;
   }
-  .hover1:hover {
+
+  #botaoHome:hover{
     background-size: 100% 100%;
     cursor: pointer;
     transform: scale(1.2);

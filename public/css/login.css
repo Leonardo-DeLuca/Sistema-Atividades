@@ -297,7 +297,8 @@ body {
     -webkit-transition: all 0.3s ease;
 }
 
-.hover1 {
+#botaoHome{
+    color: black;
     background-image: linear-gradient(white, white);
     background-size: 0 100%;
     background-repeat: no-repeat;
@@ -307,7 +308,8 @@ body {
     margin-right: auto;
     margin: 1%;
   }
-  .hover1:hover {
+
+  #botaoHome:hover{
     background-size: 100% 100%;
     cursor: pointer;
     transform: scale(1.2);
