@@ -1,1 +1,6 @@
-[{"usuario":"admin","senha":"admin"},{"usuario":"Leonardo","senha":"Leonardo123"}]
+[
+    {
+        "usuario": "admin",
+        "senha": "admin"
+    }
+]

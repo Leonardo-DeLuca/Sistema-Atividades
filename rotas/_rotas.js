@@ -7,7 +7,7 @@ const rotasResultados = require('./resultados.rotas');
 const rotasTestes = require('./testes.rotas');
 
 router.use('/', rotasHome);
-router.use('/', rotasLogin);
+router.use('/login', rotasLogin);
 router.use('/resultados', rotasResultados);
 router.use('/testes', rotasTestes);
 

@@ -40,7 +40,7 @@ const onClickRegistrar = async () => {
 
     const data = { usuario, senha };
 
-    const resp = await fetch(`${URL_BASE}/registrar/`, {
+    const resp = await fetch(`${URL_BASE}/login/registrar/`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
